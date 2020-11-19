@@ -2,8 +2,11 @@ import requests
 import os
 import datetime
 
-# current_time = datetime.datetime.now()
-# print(current_time.month,current_time.day, sep = '-')
+current_time = datetime.datetime.now()
+month = (current_time.month)
+day=(current_time.day)
+a = (f'{month}-{day}')
+
 
 def baixar_arquivo(url, endereco):
     resposta = requests.get(url)
@@ -16,10 +19,15 @@ def baixar_arquivo(url, endereco):
 
 if __name__ == "__main__":
     BASE_URL = ('http://www.fenabrave.org.br/ftp/abralib/Emplacamentos_Diario_Segmentos_S_Fabricante.xls')
-    # baixar_arquivo('http://www.fenabrave.org.br/ftp/abralib/Emplacamentos_Mensal_Segmentos_S_Fabricante.xls',
-    #                'fenabrave_mensal.csv')
+    BASE_URL2 = ('http://www.fenabrave.org.br/ftp/abralib/Emplacamentos_Mensal_Segmentos_S_Fabricante.xls')
+
     OUTPUT_DIR = '//192.168.5.175/librelato/MKT_Estrategico/. 2020/Joabe/base de dados consolidada joabe DB/Python/Nova pasta'
 
-    for i in range(1, 1):
-        nome_arquivo = os.path.join(OUTPUT_DIR, 'Extraoficial{}.xls'.format(i))
-        baixar_arquivo(BASE_URL.format(i), nome_arquivo)
+    for i in range(1, 2):
+        month = (current_time.month)
+        day = (current_time.day-1)
+        month_day = (f'{month}-{day}')
+        nome_arquivo_extraoficial = os.path.join(OUTPUT_DIR, 'Extraoficial{}.xls'.format(month_day))
+        nome_arquivo_oficial = os.path.join(OUTPUT_DIR, 'Oficial{}.xls'.format(month_day))
+        baixar_arquivo(BASE_URL.format(i), nome_arquivo_extraoficial)
+        baixar_arquivo(BASE_URL2.format(i), nome_arquivo_oficial)
