@@ -21,7 +21,7 @@ if __name__ == "__main__":
     BASE_URL = ('http://www.fenabrave.org.br/ftp/abralib/Emplacamentos_Diario_Segmentos_S_Fabricante.xls')
     BASE_URL2 = ('http://www.fenabrave.org.br/ftp/abralib/Emplacamentos_Mensal_Segmentos_S_Fabricante.xls')
 
-    OUTPUT_DIR = '//192.168.5.175/librelato/MKT_Estrategico/. 2020/Joabe/base de dados consolidada joabe DB/Python/Nova pasta'
+    OUTPUT_DIR = '"SECRET"/Joabe/base_de_dados_consolidada_joabe_DB/Python/Nova_pasta'
 
     for i in range(1, 2):
         month = (current_time.month)
